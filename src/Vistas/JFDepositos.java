@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import depositos.DepositosController;
+import depositos.DepositosDao;
+
 /**
  *
  * @author alumno
@@ -14,6 +17,9 @@ public class JFDepositos extends javax.swing.JFrame {
     /**
      * Creates new form JFDepositos
      */
+    
+    DepositosController depController = new DepositosController(new DepositosDao());
+    
     public JFDepositos() {
         initComponents();
     }
@@ -52,9 +58,19 @@ public class JFDepositos extends javax.swing.JFrame {
 
         bBuscarCuentaDeposito.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         bBuscarCuentaDeposito.setText("Buscar");
+        bBuscarCuentaDeposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBuscarCuentaDepositoActionPerformed(evt);
+            }
+        });
 
         bAceptarDeposito.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         bAceptarDeposito.setText("Aceptar");
+        bAceptarDeposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarDepositoActionPerformed(evt);
+            }
+        });
 
         bCancelarDeposito.setFont(new java.awt.Font("Eras Medium ITC", 0, 12)); // NOI18N
         bCancelarDeposito.setText("Cancelar");
@@ -115,6 +131,17 @@ public class JFDepositos extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bBuscarCuentaDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBuscarCuentaDepositoActionPerformed
+        // TODO add your handling code here:
+        depController.comprobarCuenta(Integer.parseInt(tNoCuentaDeposito.getText()), 
+                MesajeDeposito, bAceptarDeposito, tNoCuentaDeposito);
+    }//GEN-LAST:event_bBuscarCuentaDepositoActionPerformed
+
+    private void bAceptarDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarDepositoActionPerformed
+        // TODO add your handling code here:
+        depController.depositar(Integer.parseInt(tNoCuentaDeposito.getText()), Integer.parseInt(tMontoDeposito.getText()),MesajeDeposito);
+    }//GEN-LAST:event_bAceptarDepositoActionPerformed
 
     /**
      * @param args the command line arguments

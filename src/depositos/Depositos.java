@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package retiros;
+package depositos;
 
 /**
  *
  * @author alumno
  */
-public interface Retiros {
+public interface Depositos {
     boolean existeCuenta(int noCuenta);
     float conocerSaldo(int noCuenta);
-    String retirar(int noCuenta, float montoRetiro);
+    String depositar(int noCuenta, float montoDeposito);
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package retiros;
+package depositos;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,16 +13,16 @@ import javax.swing.JTextField;
  *
  * @author alumno
  */
-public class RetirosContoller {
+public class DepositosController {
     
-    Retiros retiros;
+    Depositos depositos;
 
-    public RetirosContoller(Retiros retiros) {
-        this.retiros = retiros;
+    public DepositosController(Depositos retiros) {
+        this.depositos = retiros;
     }
     
     public void comprobarCuenta(int noCuenta, JLabel statusLabel, JButton btnRetirar, JTextField txtNoCuenta){
-        if(retiros.existeCuenta(noCuenta)){
+        if(depositos.existeCuenta(noCuenta)){
             statusLabel.setText("La cuenta fue encontrada exitosamente");
             txtNoCuenta.setEditable(false);
         }else{
@@ -31,7 +31,7 @@ public class RetirosContoller {
         }
     }
     
-    public void retirar(int noCuenta,float monto, JLabel statusLabel){
-        statusLabel.setText(retiros.retirar(noCuenta, monto));
+    public void depositar(int noCuenta,float monto, JLabel statusLabel){
+        statusLabel.setText(depositos.depositar(noCuenta, monto));
     }
 }
